@@ -21,21 +21,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <cassert>
-#include <cstddef>
-#include <cstdint>
-#include <cstdlib>
-
-#include <iostream>
-
 // C++17 - flexible endian test.
 template<typename ValueType>
 constexpr int hi_byte_index ( ) noexcept {
-    unsigned int test = 1ul;
+    short test = 1;
     return ( int ) ( ( ( size_t ) char( test ) ) * ( sizeof ( ValueType ) - 1 ) );
 }
 
 constexpr bool is_little_endian = hi_byte_index<short> ( );
+
+#include <iostream>
 
 int main ( ) {
 
